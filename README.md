@@ -13,6 +13,7 @@ _Please note that it's kind of messy to sometimes calculate these values strictl
 
 ## Prerequisites
 
+- Creating deployments in GitHub and using GitHub issues with `bug` or `incident` labels
 - Recent [Node.js](https://nodejs.org/en/) (ideally 18+) installed.
 - Amazon Web Services (AWS) account with sufficient permissions so that you can deploy infrastructure. A naive but simple policy would be full rights for CloudWatch, Lambda, API Gateway, and S3.
 - Ideally some experience with [Serverless Framework](https://www.serverless.com) as that's what we will use to deploy the service and infrastructure.
@@ -62,7 +63,7 @@ Clone, fork, or download the repo as you normally would. Run `npm install`.
 
 ## Running locally
 
-Using `npm start` you can start using the local endpoint `http://localhost:3000/prod/metrics` to call the service. See example calls further down.
+Using `npm start` you can start using the local endpoint `http://localhost:3000/metrics` to call the service. See example calls further down.
 
 ## Calculations
 
