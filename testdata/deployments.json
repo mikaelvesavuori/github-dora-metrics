@@ -1,0 +1,39 @@
+{
+  "data": {
+    "rateLimit": { "limit": 5000, "cost": 1, "remaining": 4986 },
+    "repository": {
+      "deployments": {
+        "pageInfo": {
+          "hasNextPage": false,
+          "endCursor": "Y3Vyc29yOnYyOpK5MjAyMy0wNC0xOVQyMDowNDowMiswMjowMM40JZT0"
+        },
+        "edges": [
+          {
+            "node": {
+              "state": "ACTIVE",
+              "createdAt": "2023-04-20T07:22:14Z",
+              "updatedAt": "2023-04-20T07:22:27Z",
+              "commit": { "committedDate": "2023-04-20T07:21:54Z" }
+            }
+          },
+          {
+            "node": {
+              "state": "INACTIVE",
+              "createdAt": "2023-04-19T18:09:23Z",
+              "updatedAt": "2023-04-20T07:22:27Z",
+              "commit": { "committedDate": "2023-04-19T18:09:03Z" }
+            }
+          },
+          {
+            "node": {
+              "state": "ACTIVE",
+              "createdAt": "2023-04-19T18:04:02Z",
+              "updatedAt": "2023-04-19T18:04:11Z",
+              "commit": { "committedDate": "2023-04-19T18:03:41Z" }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

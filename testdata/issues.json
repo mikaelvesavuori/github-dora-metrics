@@ -1,0 +1,17 @@
+{
+  "data": {
+    "rateLimit": { "limit": 5000, "cost": 1, "remaining": 4991 },
+    "search": {
+      "pageInfo": { "hasNextPage": false, "endCursor": "Y3Vyc29yOjE=" },
+      "edges": [
+        {
+          "node": {
+            "state": "CLOSED",
+            "createdAt": "2023-04-20T08:28:32Z",
+            "closedAt": "2023-04-20T14:49:47Z"
+          }
+        }
+      ]
+    }
+  }
+}

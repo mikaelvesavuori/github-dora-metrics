@@ -1,0 +1,55 @@
+service: github-dora-metrics
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  architecture: arm64
+  stage: ${opt:stage, 'prod'}
+  region: ${opt:region, 'eu-north-1'}
+  memorySize: ${opt:memory, 1024}
+  timeout: 10
+  logRetentionInDays: 7
+  versionFunctions: false
+  deploymentBucket:
+    blockPublicAccess: true
+    maxPreviousDeploymentArtifacts: 5
+    serverSideEncryption: AES256
+  stackTags:
+    service: ${self:service}
+    stage: ${self:provider.stage}
+    runtime: ${self:provider.runtime}
+    region: ${self:provider.region}
+  tags:
+    service: ${self:service}
+    stage: ${self:provider.stage}
+    runtime: ${self:provider.runtime}
+    region: ${self:provider.region}
+  apiGateway:
+    minimumCompressionSize: 1024
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+package:
+  individually: true
+
+custom:
+  config:
+    maxPeriodInDays: 30
+    gitHubPersonalAccessToken: ${opt:pat, ''} # SET YOUR VALUE HERE
+    # Recommended approach: Using AWS Secrets Manager
+    #gitHubCredentials: ${ssm:/aws/reference/secretsmanager/GitHubCredentials} # This points to the named secret (last part of path) stored in AWS Secrets Manager
+    #gitHubPersonalAccessToken: ${self:custom.config.gitHubCredentials.PAT} # The last part is the field name in the secret
+
+functions:
+  GetMetrics:
+    handler: src/infrastructure/adapters/GetMetrics.handler
+    description: Get DORA metrics from GitHub
+    events:
+      - httpApi:
+          method: GET
+          path: /metrics
+    environment:
+      GH_PAT: ${self:custom.config.gitHubPersonalAccessToken}
+      MAX_PERIOD_IN_DAYS: ${self:custom.config.maxPeriodInDays}
