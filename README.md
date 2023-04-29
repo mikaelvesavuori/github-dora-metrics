@@ -37,7 +37,9 @@ The statement at the top—that this is a ready-to-use solution—is therefore t
 
 #### Setting the PAT value
 
-Set the PAT value in `serverless.yml` under `custom.config.gitHubPersonalAccessToken`, or use [AWS Secrets Manager or similar](https://www.serverless.com/blog/aws-secrets-management/) if you'd rather do it that way. Both ways are present in `serverless.yml` but the Secrets Manager solution is commented out. Please refer to the comments there for more information.
+You can simply pass it in as an option during CI; for example with `npx sls deploy --pat YOUR_PAT`.
+
+For hardcoding it, you'll set the PAT value in `serverless.yml` under `custom.config.gitHubPersonalAccessToken`. The recommended way, however, would be to use [AWS Secrets Manager or similar](https://www.serverless.com/blog/aws-secrets-management/). Both ways are present in `serverless.yml` but the Secrets Manager solution is commented out. Please refer to the comments there for more information.
 
 ### GitHub behaviors that drive the calculations
 
