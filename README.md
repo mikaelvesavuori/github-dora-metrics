@@ -104,7 +104,7 @@ There is no crystal-clear way to get the _time of deployment_ as the `updatedAt`
 
 #### Calculation
 
-This one is hard as doing it orthodoxly would mean mapping _each_ deployment to a _specific_ failure, which is obviously very hard, sometimes not event possible, and is definitely something that would explode the scope far out from just having to do with GitHub. While it's indeed possible to check for _strictly failed_ deployments, I don't find that to be a true indicator of real issues as they can be (given you don't do canary releases etc.) attributed to things happening before the code even reaches actual users.
+This one is hard as doing it orthodoxly would mean mapping _each_ deployment to a _specific_ failure, which is obviously very hard, sometimes not even possible, and is definitely something that would explode the scope far out from just having to do with GitHub. While it's indeed possible to check for _strictly failed_ deployments, I don't find that to be a true indicator of real issues as they can be (given you don't do canary releases etc.) attributed to things happening before the code even reaches actual users.
 
 The solution used here is to accept a somewhat wider perspective by simply dividing the number of closed issues tagged `bug` or `incident` with the number of deployments.
 
